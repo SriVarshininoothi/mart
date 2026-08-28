@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Banner from '../Components/Banner';
 
 const Index = () => {
   return (
-    <div>index</div>
-  )
-}
+    <div>
+      <Banner/>
+      
+    </div>
+  );
+};
 
-export default Index
+export default Index;

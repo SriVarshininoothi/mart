@@ -29,7 +29,7 @@ const Navbar = () => {
           className="collapse navbar-collapse"
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav ms-auto align-items-center me-">
+          <ul className="navbar-nav ms-auto align-items-center me-5">
 
             <li className="nav-item">
               <Link className="nav-link" to="/" style={{color:"White"}}>
