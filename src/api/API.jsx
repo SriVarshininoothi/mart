@@ -1,61 +1,51 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { ThreeDot } from 'react-loading-indicators';
 
+
 const API = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-    const[products,setProduct] = useState(null);
-    const[loading,setLoading] = useState(true);
-    const[Error,setError] = useState("");
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("https://dummyjson.com/products");
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+        setProducts(data.products);
+      } catch (err) {
+        setError("Failed to fetch products.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchProducts();
+  }, [setProducts]);
 
-    useEffect(()=>{
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <ThreeDot variant="bounce" color="#32cd32" size="medium" />
+      </div>
+    );
+  }
 
-         const Productdetails = async() =>{
-            try{
+  if (error) {
+    return (
+      <div className="container mt-4">
+        <div className="alert alert-danger">{error}</div>
+      </div>
+    );
+  }
 
-            setLoading(true);
-            const response = await fetch("https://dummyjson.com/products");
-            const data = await response.json();
-            setProduct(data.products);
-
-            }catch(error){
-
-                setError("Failed to Fetch Products");
-               
-            }finally{
-                setLoading(false);
-            }
-            
-           
-        }
-        Productdetails(); 
-
-    },[]);
-
-    if(loading){
-
-        return(
-            <div className='d-flex justify-content-center'>
-              <ThreeDot variant="bounce" color="#32cd32" size="medium" text="" textColor="" />
-            </div>
-        )
-    
-
-    }
-    if(Error){
-        return(
-            <div className='alert alert-danger'>
-                {Error}
-            </div>
-        )
-    }
-
-    
-    
   return (
+    <div className="container">
+  
 
-    <div className="container ">
-      <h2 className="mb-4" style={{backgroundColor:"gray",minHeight:"120px",alignContent:"center"}}>Products</h2>
+      {/* Product Grid */}
       <div className="row g-4">
         {products.map((item) => (
           <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -68,7 +58,9 @@ const API = () => {
               />
               <div className="card-body d-flex flex-column justify-content-between">
                 <div>
-                  <h5 className="card-title fs-6">{item.title}</h5>
+                  <h5 className="card-title fs-6 text-truncate" title={item.title}>
+                    {item.title}
+                  </h5>
                   <p className="card-text text-muted small">
                     {item.description?.slice(0, 50)}...
                   </p>
@@ -85,7 +77,7 @@ const API = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default API
+export default API;

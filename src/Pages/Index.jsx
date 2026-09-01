@@ -29,7 +29,7 @@ const Index = () => {
             <div
               className="text-center h-100"
               style={{
-                backgroundColor: "#ffebee",
+                backgroundColor: "#fc9aa9",
                 padding: "24px 16px",
                 borderRadius: "12px"
               }}
@@ -47,7 +47,7 @@ const Index = () => {
             <div
               className="text-center h-100"
               style={{
-                backgroundColor: "#e1f5fe",
+                backgroundColor: "#a5d2e8",
                 padding: "24px 16px",
                 borderRadius: "12px"
               }}
@@ -65,7 +65,7 @@ const Index = () => {
             <div
               className="text-center h-100"
               style={{
-                backgroundColor: "#e8f5e9",
+                backgroundColor: "#a5ebab",
                 padding: "24px 16px",
                 borderRadius: "12px"
               }}
@@ -83,7 +83,7 @@ const Index = () => {
             <div
               className="text-center h-100"
               style={{
-                backgroundColor: "#fff9c4",
+                backgroundColor: "#ece6b1",
                 padding: "24px 16px",
                 borderRadius: "12px"
               }}
@@ -101,62 +101,7 @@ const Index = () => {
 
 
 
-      <div className='container my-5'>
-        <div className='row'>
-          <h1>Big Discount</h1>
-
-          <div className='col-12 col-lg-4'>
-
-            <div style={{ backgroundColor: "black" }}>
-              <img src={sofa} style={{ objectFit: "contain" }} />
-              <h2>Stone and Beam Westview</h2>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <p>193</p>
-
-              <i className='bi bi-plus' style={{bottom:"0",right:"0"}}></i>
-            </div>
-
-          </div>
-             <div className='col-12 col-lg-4'>
-
-            <div style={{ backgroundColor: "black" }}>
-              <img src={sofa} style={{ objectFit: "contain" ,minHeight:"12px"}} />
-              <h2>Stone and Beam Westview</h2>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <p>193</p>
-
-              <i className='bi bi-plus' style={{bottom:"0",right:"0"}}></i>
-            </div>
-
-          </div>
-          <div className='col-12 col-lg-4'>
-
-            <div style={{ backgroundColor: "black" }}>
-              <img src={sofa} style={{ objectFit: "contain" ,minHeight:"12px"}} />
-              <h2>Stone and Beam Westview</h2>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <i className='bi bi-star-fill' style={{ color: "yellow" }}></i>
-              <p>193</p>
-
-              <i className='bi bi-plus' style={{bottom:"0",right:"0"}}></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+      
 
     </div>
   );
