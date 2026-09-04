@@ -1,5 +1,5 @@
 import React from 'react'
-import API from '../api/API'
+import API from '../api/api';
 import banner from '../assets/banner.jpg';
 
 const Shop = () => {
@@ -49,7 +49,7 @@ const Shop = () => {
 
       </form>
 
-      <API />
+     <API/>
 
 
     </div>

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import Index from '../Pages/Index'
 import Shop from '../Pages/Shop'
 import Cart from '../Pages/Cart'
 import Login from '../Pages/Login'
+import Index from '../Pages/Index'
 
 const Display = () => {
   return (

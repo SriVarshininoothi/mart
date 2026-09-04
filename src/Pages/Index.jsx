@@ -1,6 +1,9 @@
 import React from 'react';
 import Banner from '../Components/Banner';
 import sofa from "../assets/sofa.jpeg"
+import BigDiscount from '../sections/BigDiscount';
+import NewArrives from '../sections/NewArrives';
+import BestSales from '../sections/BestSales';
 
 const Index = () => {
   // Common style for the circular icon wrapper
@@ -101,9 +104,12 @@ const Index = () => {
 
 
 
-      
+        <BigDiscount/>
+        <NewArrives/>
+        <BestSales/>
 
     </div>
+  
   );
 };
 

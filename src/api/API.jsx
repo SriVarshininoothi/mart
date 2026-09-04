@@ -50,6 +50,7 @@ const API = () => {
         {products.map((item) => (
           <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
             <div className="card h-100 shadow-sm">
+              
               <img
                 src={item.thumbnail}
                 className="card-img-top p-3"
@@ -61,16 +62,40 @@ const API = () => {
                   <h5 className="card-title fs-6 text-truncate" title={item.title}>
                     {item.title}
                   </h5>
-                  <p className="card-text text-muted small">
-                    {item.description?.slice(0, 50)}...
-                  </p>
+                
                 </div>
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <span className="fw-bold text-success">${item.price}</span>
-                  <span className="badge bg-warning text-dark">
-                    ★ {item.rating}
+                 <div className="d-flex flex-column">
+                  <span className="d" style={{ color: "orange" }}>
+                    ★ ★ ★ ★ ★
+
                   </span>
+                  <span className="fw-bold text-success">
+                    ${item.price}
+                  </span>
+
+
                 </div>
+                <button style={{
+                  bottom: "10px",
+                right: "16px",
+                position:"absolute",
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50px",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #2c53c7", /* Light grey border */
+                  color: "#0066cc", /* The vibrant blue for the plus sign */
+                  fontSize: "28px",
+                  fontWeight: "300", /* Keeps the plus sign thin */
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  fontWidth:"bold"
+                }}>
+                  +</button>
+                
               </div>
             </div>
           </div>
