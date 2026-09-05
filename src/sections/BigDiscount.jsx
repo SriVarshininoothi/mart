@@ -3,6 +3,8 @@ import API from '../api/api';
 const BigDiscount = () => {
 
   const [products, setProducts] = useState([]);
+  
+
 
   useEffect(() => {
     const getProducts = async () => {
@@ -52,6 +54,7 @@ const BigDiscount = () => {
                   src={item.thumbnail}
                   className="card-img-top p-3"
                   alt={item.title}
+                 
                   style={{
                     height: "250px",
                     objectFit: "contain"
