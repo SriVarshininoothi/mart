@@ -3,6 +3,11 @@ import API from '../api/api';
 import { Link } from 'react-router-dom';
 
 const BigDiscount = () => {
+  
+  function handleButton (){
+
+
+  }
 
   const [products, setProducts] = useState([]);
 
