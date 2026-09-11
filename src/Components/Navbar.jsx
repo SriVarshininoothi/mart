@@ -58,7 +58,7 @@ const Navbar = () => {
             <li className="nav-item">
               <Link
                 className="nav-link position-relative"
-                to="/Cart" style={{color:"White"}}
+                to="/CartIcon" style={{color:"White"}}
               >
                 <i className="bi bi-cart-fill fs-5"></i>
 

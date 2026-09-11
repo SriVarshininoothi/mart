@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import API from '../api/api';
+import { Link } from 'react-router-dom';
+
 const BigDiscount = () => {
 
   const [products, setProducts] = useState([]);
-  
+
 
 
   useEffect(() => {
@@ -19,7 +21,7 @@ const BigDiscount = () => {
 
   return (
 
-    <div className="container my-4" style={{backgroundColor:"lightblue",padding:"15px"}}>
+    <div className="container my-4" style={{ backgroundColor: "lightblue", padding: "15px" }}>
 
       <h2 className="text-center mb-4">
         Big Discount
@@ -50,16 +52,18 @@ const BigDiscount = () => {
                 }}
                 >{Math.round(item.discountPercentage)}%OFF</button>
 
-                <img
-                  src={item.thumbnail}
-                  className="card-img-top p-3"
-                  alt={item.title}
-                 
-                  style={{
-                    height: "250px",
-                    objectFit: "contain"
-                  }}
-                />
+                <Link to={`/product/${item.id}`}>
+                  <img
+                    src={item.thumbnail}
+                    className="card-img-top p-3"
+                    alt={item.title}
+                    style={{
+                      height: "250px",
+                      objectFit: "contain",
+                      cursor: "pointer"
+                    }}
+                  />
+                </Link>
 
                 <div className="card-body justify-content-start">
 

@@ -1,5 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+
+
 const NewArrives = () => {
   const [products, setProducts] = useState([]);
 
@@ -41,15 +44,18 @@ const NewArrives = () => {
                   {Math.round(item.discountPercentage)}%OFF
                 </button>
 
-                <img
-                  src={item.thumbnail}
-                  className="card-img-top p-3"
-                  alt={item.title}
-                  style={{
-                    height: "250px",
-                    objectFit: "contain",
-                  }}
-                />
+                <Link to={`/product/${item.id}`}>
+                  <img
+                    src={item.thumbnail}
+                    className="card-img-top p-3"
+                    alt={item.title}
+                    style={{
+                      height: "250px",
+                      objectFit: "contain",
+                      cursor: "pointer"
+                    }}
+                  />
+                </Link>
 
                 <div className="card-body justify-content-start">
                   <h5 className="card-title fs-6">{item.title}</h5>
