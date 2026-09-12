@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white mt-5">
+<footer className="text-white mt-5" style={{ backgroundColor: "#0f0e47" }}>
 
       <div className="container py-5">
 
@@ -16,7 +16,7 @@ const Footer = () => {
               <i className="bi bi-bag-fill"></i> Mart
             </h3>
 
-            <p className="text-secondary">
+            <p className="text-white">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Impedit totam ex non dolores, dicta blanditiis voluptate
               eum rerum saepe delectus! Molestias nam incidunt delectus
@@ -126,18 +126,7 @@ const Footer = () => {
       </div>
 
 
-      {/* Bottom */}
-      <div className="border-top border-secondary">
-
-        <div className="container py-3 text-center">
-
-          <p className="mb-0 text-secondary">
-            © 2026 Mart. All Rights Reserved.
-          </p>
-
-        </div>
-
-      </div>
+     
 
     </footer>
   )
