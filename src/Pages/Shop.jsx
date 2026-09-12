@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import API from '../api/api';
+import API from '../api/API'
 import banner from '../assets/banner.jpg';
 
 const Shop = () => {
