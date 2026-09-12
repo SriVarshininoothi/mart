@@ -77,6 +77,7 @@ const Shop = () => {
         category={category}
         search={search}
       />
+      
 
     </div>
   );

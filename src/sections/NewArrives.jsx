@@ -1,10 +1,15 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../feature/CartSlice";
 
 const NewArrives = () => {
+
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const getProducts = async () => {
@@ -16,17 +21,58 @@ const NewArrives = () => {
     getProducts();
   }, []);
 
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+
+    setMessage("Product is added to cart");
+
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
+  };
+
   return (
     <div className="container my-4">
-      <h2 className="text-center mb-4">New Arrives</h2>
+
+      {/* Popup Message */}
+      {message && (
+        <div
+          style={{
+            position: "fixed",
+            top: "80px",
+            right: "20px",
+            backgroundColor: "white",
+            padding: "15px 25px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+            zIndex: 9999,
+            color: "green",
+            fontWeight: "bold"
+          }}
+        >
+          ✓ {message}
+        </div>
+      )}
+
+      <h2 className="text-center mb-4">
+        New Arrives
+      </h2>
 
       <div className="row g-4">
+
         {[...products]
           .sort((a, b) => new Date(b.date) - new Date(a.date))
           .slice(0, 10)
           .map((item) => (
-            <div key={item.id} className="col-12 col-sm-6 col-md-4">
+
+            <div
+              key={item.id}
+              className="col-12 col-sm-6 col-md-4"
+            >
+
               <div className="card h-100 shadow-sm">
+
+                {/* Discount */}
                 <button
                   style={{
                     backgroundColor: "blue",
@@ -44,6 +90,7 @@ const NewArrives = () => {
                   {Math.round(item.discountPercentage)}%OFF
                 </button>
 
+                {/* Product Image */}
                 <Link to={`/product/${item.id}`}>
                   <img
                     src={item.thumbnail}
@@ -58,16 +105,40 @@ const NewArrives = () => {
                 </Link>
 
                 <div className="card-body justify-content-start">
-                  <h5 className="card-title fs-6">{item.title}</h5>
+
+                  <h5 className="card-title fs-6">
+                    {item.title}
+                  </h5>
 
                   <div className="d-flex flex-column">
-                    <span className="d" style={{ color: "orange" }}>
+
+                    <span
+                      className="d"
+                      style={{ color: "orange" }}
+                    >
                       ★ ★ ★ ★ ★
                     </span>
-                    <span className="fw-bold text-success">${item.price}</span>
+
+                    <span className="fw-bold text-success">
+                      ${item.price}
+                    </span>
+
                   </div>
 
+                  {/* Add To Cart Button */}
                   <button
+                    type="button"
+                    onClick={() => handleAddToCart(item)}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#0066cc";
+                      e.currentTarget.style.color = "white";
+                      e.currentTarget.style.transform = "scale(1.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ffffff";
+                      e.currentTarget.style.color = "#0066cc";
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
                     style={{
                       bottom: "10px",
                       right: "16px",
@@ -76,25 +147,32 @@ const NewArrives = () => {
                       height: "48px",
                       borderRadius: "50px",
                       backgroundColor: "#ffffff",
-                      border: "1px solid #2c53c7" /* Light grey border */,
-                      color: "#0066cc" /* The vibrant blue for the plus sign */,
+                      border: "1px solid #2c53c7",
+                      color: "#0066cc",
                       fontSize: "28px",
-                      fontWeight: "300" /* Keeps the plus sign thin */,
+                      fontWeight: "300",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       cursor: "pointer",
                       transition: "all 0.2s ease",
                       fontWidth: "bold",
+                      zIndex: 10
                     }}
                   >
                     +
                   </button>
+
                 </div>
+
               </div>
+
             </div>
+
           ))}
+
       </div>
+
     </div>
   );
 };

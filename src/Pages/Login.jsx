@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ const Login = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+
     const { name, value } = e.target;
 
     setFormData({
@@ -22,19 +23,28 @@ const Login = () => {
   };
 
   const validate = () => {
+
     let newErrors = {};
 
     if (!formData.email) {
+
       newErrors.email = "Email is required";
+
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+
       newErrors.email = "Enter a valid email";
+
     }
 
     if (!formData.password) {
+
       newErrors.password = "Password is required";
+
     } else if (formData.password.length < 6) {
+
       newErrors.password =
         "Password must be at least 6 characters";
+
     }
 
     setErrors(newErrors);
@@ -43,20 +53,23 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
     if (validate()) {
-      // Login successful
+
       alert("Login Successful!");
 
-      // Go to Index/Home page
       navigate("/");
     }
   };
 
   return (
+
     <div className="container mt-5">
+
       <div className="row justify-content-center">
+
         <div className="col-md-5">
 
           <div className="card p-4 shadow">
@@ -68,7 +81,9 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
 
               {/* Email */}
+
               <div className="mb-3">
+
                 <label className="form-label">
                   Email
                 </label>
@@ -83,14 +98,19 @@ const Login = () => {
                 />
 
                 {errors.email && (
+
                   <small className="text-danger">
                     {errors.email}
                   </small>
+
                 )}
+
               </div>
 
               {/* Password */}
+
               <div className="mb-3">
+
                 <label className="form-label">
                   Password
                 </label>
@@ -105,10 +125,13 @@ const Login = () => {
                 />
 
                 {errors.password && (
+
                   <small className="text-danger">
                     {errors.password}
                   </small>
+
                 )}
+
               </div>
 
               <button
@@ -123,7 +146,9 @@ const Login = () => {
           </div>
 
         </div>
+
       </div>
+
     </div>
   );
 };

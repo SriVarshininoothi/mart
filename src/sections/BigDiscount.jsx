@@ -1,32 +1,62 @@
 import React, { useEffect, useState } from 'react';
-import API from '../api/api';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../feature/CartSlice';
 
 const BigDiscount = () => {
-  
-  function handleButton (){
 
-
-  }
-
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
-
-
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const getProducts = async () => {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
       setProducts(data.products);
-
     };
 
     getProducts();
   }, []);
 
-  return (
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
 
-    <div className="container my-4" style={{ backgroundColor: "lightblue", padding: "15px" }}>
+    setMessage("Product is added to cart");
+
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
+  };
+
+  return (
+    <div
+      className="container my-4"
+      style={{
+        backgroundColor: "lightblue",
+        padding: "15px"
+      }}
+    >
+
+      {/* Popup Message */}
+      {message && (
+        <div
+          style={{
+            position: "fixed",
+            top: "80px",
+            right: "20px",
+            backgroundColor: "white",
+            padding: "15px 25px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+            zIndex: 9999,
+            color: "green",
+            fontWeight: "bold"
+          }}
+        >
+          ✓ {message}
+        </div>
+      )}
 
       <h2 className="text-center mb-4">
         Big Discount
@@ -45,18 +75,26 @@ const BigDiscount = () => {
             >
 
               <div className="card h-100 shadow-sm">
-                <button style={{
-                  backgroundColor: "blue",
-                  color: "White",
-                  fontWeight: "bold",
-                  top: "10px",
-                  left: "16px",
-                  position: "absolute",
-                  fontSize: "14px",
-                  letterSpacing: "0.5px", borderRadius: "12px", border: "solid 1px"
-                }}
-                >{Math.round(item.discountPercentage)}%OFF</button>
 
+                {/* Discount */}
+                <button
+                  style={{
+                    backgroundColor: "blue",
+                    color: "White",
+                    fontWeight: "bold",
+                    top: "10px",
+                    left: "16px",
+                    position: "absolute",
+                    fontSize: "14px",
+                    letterSpacing: "0.5px",
+                    borderRadius: "12px",
+                    border: "solid 1px"
+                  }}
+                >
+                  {Math.round(item.discountPercentage)}%OFF
+                </button>
+
+                {/* Product Image */}
                 <Link to={`/product/${item.id}`}>
                   <img
                     src={item.thumbnail}
@@ -70,48 +108,62 @@ const BigDiscount = () => {
                   />
                 </Link>
 
-                <div className="card-body justify-content-start">
+                <div className="card-body">
 
                   <h5 className="card-title fs-6">
                     {item.title}
                   </h5>
 
-
-
                   <div className="d-flex flex-column">
-                    <span className="d" style={{ color: "orange" }}>
-                      ★ ★ ★ ★ ★
 
+                    <span
+                      style={{ color: "orange" }}
+                    >
+                      ★ ★ ★ ★ ★
                     </span>
+
                     <span className="fw-bold text-success">
                       ${item.price}
                     </span>
 
-
                   </div>
 
-
-                  <button style={{
-                    bottom: "10px",
-                    right: "16px",
-                    position: "absolute",
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "50px",
-                    backgroundColor: "#ffffff",
-                    border: "1px solid #2c53c7", /* Light grey border */
-                    color: "#0066cc", /* The vibrant blue for the plus sign */
-                    fontSize: "28px",
-                    fontWeight: "300", /* Keeps the plus sign thin */
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                    transition: "all 0.2s ease",
-                    fontWidth: "bold"
-                  }}>
-                    +</button>
-
+                  {/* Add To Cart Button */}
+                  <button
+                    type="button"
+                    onClick={() => handleAddToCart(item)}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#0066cc";
+                      e.currentTarget.style.color = "white";
+                      e.currentTarget.style.transform = "scale(1.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ffffff";
+                      e.currentTarget.style.color = "#0066cc";
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
+                    style={{
+                      bottom: "10px",
+                      right: "16px",
+                      position: "absolute",
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "50px",
+                      backgroundColor: "#ffffff",
+                      border: "1px solid #2c53c7",
+                      color: "#0066cc",
+                      fontSize: "28px",
+                      fontWeight: "300",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                      zIndex: 10
+                    }}
+                  >
+                    +
+                  </button>
 
                 </div>
 
