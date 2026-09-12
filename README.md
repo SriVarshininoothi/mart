@@ -1,16 +1,88 @@
-# React + Vite
+# Mart - E-Commerce Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive e-commerce web application built using React, Redux Toolkit, React Router, Bootstrap, and DummyJSON API.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ **[View Live Project(https://srivarshini-mart-nu.vercel.app/)**
+ 
+##  Features
 
-## React Compiler
+* Responsive e-commerce interface
+* Product listing using DummyJSON API
+* Product browsing and display
+* Shopping cart functionality
+* Add products to cart
+* Increase and decrease product quantity
+* Remove products from cart
+* Automatic total price calculation
+* Cart persistence using LocalStorage
+* Redux Toolkit for state management
+* React Router for navigation
+* Bootstrap responsive design
+* Promotional carousel/banner
+* Product sections such as Big Discount, New Arrivals, and Best Sales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technologies Used
 
-## Expanding the ESLint configuration
+* React.js
+* JavaScript
+* Redux Toolkit
+* React Redux
+* React Router DOM
+* Bootstrap
+* DummyJSON API
+* LocalStorage
+* HTML5
+* CSS3
+* Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##  Cart Persistence
+
+The application uses Redux Toolkit to manage the shopping cart and LocalStorage to persist cart data.
+
+When a user adds a product, the cart is updated in Redux and saved to LocalStorage. This allows the cart to remain available even after refreshing the browser.
+
+##  API
+
+Product data is fetched from the DummyJSON API:
+
+`https://dummyjson.com/products`
+
+The API provides product information including:
+
+* Product name
+* Price
+* Images
+* Category
+* Rating
+* Discount
+* Stock
+* Description
+
+##  Installation
+
+```bash
+git clone <your-github-repository-url>
+cd Mart
+npm install
+npm run dev
+```
+
+##  Future Improvements
+
+* User authentication
+* Product search
+* Category filtering
+* Price filtering
+* Product sorting
+* Wishlist
+* Product details page
+* Checkout functionality
+* Payment integration
+* Order history
+* Backend and database integration
+
+##  Author
+
+**Noothi Srivarshini**
