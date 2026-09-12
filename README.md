@@ -4,7 +4,7 @@ A responsive e-commerce web application built using React, Redux Toolkit, React 
 
 ## 🔗 Live Demo
 
- **[(https://srivarshini-mart-nu.vercel.app/)]**
+ **[https://srivarshini-mart-nu.vercel.app/]**
  
 ##  Features
 
@@ -68,20 +68,6 @@ cd Mart
 npm install
 npm run dev
 ```
-
-##  Future Improvements
-
-* User authentication
-* Product search
-* Category filtering
-* Price filtering
-* Product sorting
-* Wishlist
-* Product details page
-* Checkout functionality
-* Payment integration
-* Order history
-* Backend and database integration
 
 ##  Author
 
