@@ -3,6 +3,7 @@ import sofa from "../assets/sofa.jpeg";
 import watch from "../assets/watch.jpeg";
 import headphone from "../assets/headphone.jpeg";
 import phone from "../assets/phone.jpeg";
+import { Link } from 'react-router-dom'
 
 const Banner = () => {
   return (
@@ -41,13 +42,14 @@ const Banner = () => {
                       Officia, maiores autem! Repellat molestias tempore cupiditate.
                     </p>
 
-                    <button
+                    <Link to='/Shop'> <button
                       type="button"
                       className="btn btn-primary"
                       style={{ border: 'none' }}
                     >
                       Visit Collections
-                    </button>
+                    </button></Link>
+
 
                   </div>
 
@@ -99,13 +101,15 @@ const Banner = () => {
                       Officia, maiores autem! Repellat molestias tempore cupiditate.
                     </p>
 
-                    <button
+                    <Link to='/Cart'><button
                       type="button"
                       className="btn btn-secondary"
                       style={{ border: 'none' }}
                     >
                       Visit Collections
                     </button>
+                    </Link>
+
 
                   </div>
 
