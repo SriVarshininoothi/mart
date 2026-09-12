@@ -4,7 +4,7 @@ A responsive e-commerce web application built using React, Redux Toolkit, React 
 
 ## 🔗 Live Demo
 
- **[View Live Project(https://srivarshini-mart-nu.vercel.app/)**
+ **[(https://srivarshini-mart-nu.vercel.app/)]**
  
 ##  Features
 
@@ -23,7 +23,7 @@ A responsive e-commerce web application built using React, Redux Toolkit, React 
 * Promotional carousel/banner
 * Product sections such as Big Discount, New Arrivals, and Best Sales
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 * React.js
 * JavaScript
